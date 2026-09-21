@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
-    function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+    function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500);
     </script>
     <title>Contact Form</title>
     <style>
@@ -51,7 +51,7 @@
         width: 100% !important;
         padding: 12px !important;
         font-size: 16px !important;
-        background: #2e7d32 !important;
+        background: #a7ba57 !important;
         color: #fff !important;
         border: none !important;
         border-radius: 4px !important;
@@ -99,7 +99,7 @@
         <input
           type="hidden"
           name="retURL"
-          value="https://innerplant.com/contact/"
+          value="https://innerplant.com/thank-you/"
         />
         <input type="hidden" name="lead_source" id="lead_source" value="Inbound - Cobranded">
         <!-- Referring partner name; swap this value per co-brand partner -->
@@ -162,4 +162,3 @@
     </div>
   </body>
 </html>
-
