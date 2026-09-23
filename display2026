@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+    function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+    </script>
+    <title>Contact Form</title>
+    <style>
+      .lead-form-wrap {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      .lead-form-wrap * {
+        box-sizing: border-box;
+      }
+      .field {
+        margin-bottom: 16px;
+      }
+      .field label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .field label.required::after {
+        content: " *";
+        color: #c62828;
+      }
+      .field .help-text {
+        display: block;
+        margin-top: 4px;
+        font-size: 12px;
+        color: #666;
+        font-weight: normal;
+      }
+      .field input[type="text"],
+      .field select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px; /* 16px minimum prevents iOS Safari auto-zoom on focus */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .submit-btn {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 16px !important;
+        background: #a7ba57 !important;
+        color: #fff !important;
+        border: none !important;
+        border-radius: 4px !important;
+        cursor: pointer !important;
+      }
+      .submit-btn:hover {
+        background: #256428;
+      }
+
+      /* Tablet and up: two-column layout for shorter fields */
+      @media (min-width: 600px) {
+        .lead-form-wrap {
+          max-width: 640px;
+        }
+        .field-row {
+          display: flex;
+          gap: 16px;
+        }
+        .field-row .field {
+          flex: 1;
+        }
+      }
+
+      /* Desktop: a bit more breathing room */
+      @media (min-width: 1024px) {
+        .lead-form-wrap {
+          max-width: 720px;
+          padding: 24px;
+        }
+        .submit-btn {
+          width: auto;
+          padding: 12px 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lead-form-wrap">
+      <form
+        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DKj000002YoWZ"
+        method="POST"
+      >
+        <input type=hidden name='captcha_settings' value='{"keyname":"InnerPlant2027V2","fallback":"true","orgId":"00DKj000002YoWZ","ts":""}'>
+        <input type="hidden" name="oid" value="00DKj000002YoWZ" />
+        <input
+          type="hidden"
+          name="retURL"
+          value="https://innerplant.com/thank-you/"
+        />
+        <input type="hidden" name="lead_source" id="lead_source" value="Display 2026">
+        <!-- [Enter a real Salesforce Account Id for the value] -->
+        <!-- Current value is for testing purposes -->
+        <input type="hidden" name="00NPY00000YFPQk" id="00NPY00000YFPQk" value="">
+
+        <div class="field-row">
+          <div class="field">
+            <label for="first_name">First Name</label>
+            <input
+              id="first_name"
+              maxlength="40"
+              name="first_name"
+              type="text"
+            />
+          </div>
+          <div class="field">
+            <label for="last_name">Last Name</label>
+            <input id="last_name" maxlength="80" name="last_name" type="text" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="company" class="required">Farm or Company</label>
+          <input
+            id="company"
+            maxlength="255"
+            name="company"
+            type="text"
+            required
+          />
+          <span class="help-text"
+            >If you don't have a Farm or Company name, enter your last name
+            followed by "Farm".</span
+          >
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="email" class="required">Email</label>
+            <input id="email" maxlength="80" name="email" type="text" required />
+          </div>
+          <div class="field">
+            <label for="phone" class="required">Phone</label>
+            <input id="phone" maxlength="40" name="phone" type="text" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="zip" class="required">Zip</label>
+          <input id="zip" maxlength="20" name="zip" type="text" required />
+        </div>
+
+        <div class="field">
+          <label for="00NKj00000QxVjS">Tell us about your role</label>
+          <select id="00NKj00000QxVjS" name="00NKj00000QxVjS" title="Type">
+            <option value="">--None--</option>
+            <option value="Farmer">Farmer</option>
+            <option value="Retailer">Retailer</option>
+            <option value="Seed Dealer">Seed Dealer</option>
+            <option value="Seed Company">Seed Company</option>
+            <option value="Farm Manager">Farm Manager</option>
+            <option value="Industry Partner">Industry Partner</option>
+            <option value="Investor">Investor</option>
+            <option value="Candidate">Candidate</option>
+            <option value="Press">Press</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="g-recaptcha" data-sitekey="6LcS8sItAAAAAF8yF9z4vxDUWhvRKeBmWi74YaH_"></div><br>
+
+        <input class="submit-btn" type="submit" name="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>
